@@ -35,7 +35,8 @@ rl.question("Choose an option (1-3): ", choice =>  {
          });
 
     } else if (choice === "3") {    
-        console.log("Exit");
+        console.log("Exiting program... Goodbye!");
+        rl.close();
     }else {
         console.log("Invalid choice. Please try again.");
     }
