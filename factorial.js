@@ -16,10 +16,28 @@ rl.question("Choose an option (1-3): ", choice =>  {
         console.log("Hello There");
     }else if (choice === "2") {
         console.log("Factorial");
+
+         rl.question("Enter a number: ", (numStr) => {
+            let num = parseInt(numStr);
+
+            if (isNaN(num) || num < 0) {
+                console.log("Please enter a non-negative integer.");
+            }else {
+
+                let fact = 1;
+
+                for (let i = 1; i <= num; i++) {
+                    fact *= i;
+                }
+
+                console.log("The factorial of " + num + " is " + fact);
+            }
+         });
+
     } else if (choice === "3") {    
         console.log("Exit");
     }else {
         console.log("Invalid choice. Please try again.");
     }
-    rl.close();
+
 })
