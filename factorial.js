@@ -16,9 +16,11 @@ function mainMenu() {
 rl.question("Choose an option (1-3): ", choice =>  {
     if (choice === "1") {
         console.log("Hello There");
+        backToMenu();
     }else if (choice === "2") {
         console.log("Factorial");
         computeFactorial()
+        backToMenu();
     } else if (choice === "3") {    
         console.log("Exiting program... Goodbye!");
         rl.close();
@@ -46,9 +48,28 @@ function computeFactorial() {
 
                     console.log("The factorial of " + num + " is " + fact);
                 }
+                
+            backToMenu();
             
          });
 
 }
 
+function backToMenu() {
+    rl.question("----------");
+    console.log("1. back to Menu");
+    console.log("2. Exit"); 
+        
+        rl.question("What would you like to do next? (1-2) : ", (backToMenuChoice) => {
+            if (backToMenuChoice === "1") {
+                mainMenu();
+            } else if (backToMenuChoice === "2") {
+                console.log("Exiting program... Goodbye!");
+                rl.close();
+            } else {
+                console.log("Invalid choice. Please try again.");
+                backToMenu();
+            }
+        });
+    }
 mainMenu();
