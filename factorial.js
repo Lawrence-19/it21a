@@ -5,11 +5,13 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-console.log("Factorial Application");
+function mainMenu() {
 
-console.log("1. Say Hello");
-console.log("2. Compute Factorial");
-console.log("3. Exit");
+    console.log("Factorial Application");
+
+    console.log("1. Say Hello");
+    console.log("2. Compute Factorial");
+    console.log("3. Exit");
 
 rl.question("Choose an option (1-3): ", choice =>  {
     if (choice === "1") {
@@ -42,3 +44,5 @@ rl.question("Choose an option (1-3): ", choice =>  {
     }
 
 })
+
+}
