@@ -41,8 +41,11 @@ rl.question("Choose an option (1-3): ", choice =>  {
         rl.close();
     }else {
         console.log("Invalid choice. Please try again.");
+        mainMenu();
     }
 
 })
 
 }
+
+mainMenu();
