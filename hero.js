@@ -5,10 +5,19 @@ class Hero{
         this.name = name;
         this.#health = health;
         this.attack = attack;
+        this.items = [];
     }
 
     getHealth(){
         return this.#health;
+    }
+
+    getName(){
+        return this.name;
+    }
+
+    getAttack(){
+       console.log(this.attack);
     }
 
     getStats(){
@@ -18,6 +27,14 @@ class Hero{
        console.log("Attack: " + this.attack);
     }
 
+    addItem(item){
+        this.items.push(item);
+    }
+
+    totalAttack(){
+        return this.attack + this.items.reduce((sum, i) => sum + i.bonusAttack, 0);
+
+    }    
 }
 
 class Warrior extends Hero{
@@ -39,14 +56,31 @@ class Mage extends Hero{
 
 }
 
+class Item{
+    constructor(name, bonusAttack, ){
+        this.name = name;
+        this.bonusAttack = bonusAttack;
+        
+    }
+}
 
+const sword = new Item("Sword", 5);
+const staff = new Item("Staff", 3);
 
 const Thorin = new Warrior("Thorin", 100, 100);
-//Thorin.useAbility();
-Thorin.getStats();
+Thorin.getName();
+Thorin.getAttack();
+Thorin.addItem(sword);
+console.log(Thorin.totalAttack());
+
+
+
 
 const Gandalf = new Mage("Gandalf", 80, 50, 9999);
-Gandalf.getStats();
+Gandalf.getName();
+Gandalf.getAttack();
+Gandalf.addItem(staff);
+console.log(Gandalf.totalAttack());
 
 
 function performAbility(hero){
