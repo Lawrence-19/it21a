@@ -18,7 +18,9 @@
                     data:data.values,
                     borderwidth:1
                 }]
-            },
+            },    
+
+            
             options:{
                 scales:{
                     y:{
